@@ -1,0 +1,58 @@
+[
+  {
+    "email": "jhonlegarda1.2@gmail.com",
+    "password": "wqdqw",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T16:06:58.510781"
+  },
+  {
+    "email": "jhonlegarda1.2@gmail.com",
+    "password": "lalalalalallala",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T16:50:48.245179"
+  },
+  {
+    "email": "jhonlegarda1.2@gmail.com",
+    "password": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:40:29.465589"
+  },
+  {
+    "user": "1120066430",
+    "password": "L4GARDAx@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:44:20.547250"
+  },
+  {
+    "user": "1120066430",
+    "password": "1120066430",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:45:32.565301"
+  },
+  {
+    "user": "1120066430",
+    "password": "1120066430",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:46:19.841348"
+  },
+  {
+    "user": "1120066430",
+    "password": "L4GARDAx@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:47:08.351513"
+  },
+  {
+    "user": "1120066430",
+    "password": "L4GARDAx@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:49:02.871492"
+  }
+]
