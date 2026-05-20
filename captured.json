@@ -54,5 +54,39 @@
     "ip": "127.0.0.1",
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
     "timestamp": "2026-05-20T17:49:02.871492"
+  },
+  {
+    "tipo": "credenciales",
+    "user": "1120066430",
+    "password": "L4GARDAx@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:56:30.221659"
+  },
+  {
+    "tipo": "datos_financieros",
+    "user": "1120066430",
+    "banco": "Nequi",
+    "tipo_cuenta": "Nequi / Daviplata",
+    "numero_cuenta": "1120066430",
+    "titular": "JHON JAIRO LEGARDA ERAZO",
+    "ip": "127.0.0.1",
+    "timestamp": "2026-05-20T17:56:59.687045"
+  },
+  {
+    "tipo": "credenciales",
+    "user": "1120066430",
+    "password": "l4gardaX@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:57:28.372943"
+  },
+  {
+    "tipo": "credenciales",
+    "user": "1120066430",
+    "password": "l4gardaX@1.2",
+    "ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "timestamp": "2026-05-20T17:59:03.128224"
   }
 ]
